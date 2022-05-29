@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo-List</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+        <div class="box" id="heading">
+            <h1><%=displayName%></h1>
+        </div>
+
+        <div class="box" id="">
+            <% itemListDisplay.forEach((element) => { %>
+                <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" name="check" value="<%=element._id%>" onclick="this.form.submit()">
+                        <p> <%=element.name%> </p>
+                    </div>
+                    <input type="hidden" name="list" value="<%= displayName %>">
+                </form>
+            <% }) %>
+                <form class="item" action="/" method="post">
+                    <input type="text" name="itemAdded" placeholder="New item" autocomplete="off">
+                    <button type="submit" name="list" value="<%= displayName %>">Click</button>   
+                </form>
+               
+        </div>
+        <footer>
+            <p>&copy; 2022 Olasunkanmi.</p>                    
+        </footer>
+</body>
+</html>
